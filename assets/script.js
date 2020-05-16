@@ -116,7 +116,7 @@ $("#citySubmit").click(function() {
         //Setting up the URL for the UV index call
         var lat = response.coord.lat
         var lon = response.coord.lon
-        var uviURL = "http://api.openweathermap.org/data/2.5/uvi?appid=7ac1bb50f3155ba6ff66a3815eaa730d&lat="
+        var uviURL = "https://api.openweathermap.org/data/2.5/uvi?appid=7ac1bb50f3155ba6ff66a3815eaa730d&lat="
             + lat + "&lon=" + lon
 
         //This ajax call is specifically for the UV index
@@ -170,7 +170,7 @@ $("#citySubmit").click(function() {
         //Getting the wearther description for the city searched for
         //Acquiring the correct icon for the weather from Open Weather
         var weatherDesc = response.weather[0].description
-        var iconURL = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"
+        var iconURL = "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"
 
         //Appending all the correct information to the right divs
         var tempC = response.main.temp - 273.15
@@ -197,7 +197,7 @@ $("#citySubmit").click(function() {
         //Adds them to an array to be iterated through
         var weathers = []
         weathers.push(response.list[2], response.list[11], response.list[20], response.list[29], response.list[38])
-
+        console.log(response)
         //Iterate through each day
         weathers.forEach(function(day){
             
@@ -207,13 +207,14 @@ $("#citySubmit").click(function() {
             //Setting the date from the UNIX timestamp
             var timestamp = day.dt
             var date = new Date(timestamp * 1000)
+            console.log(date)
             var dd = String(date.getDate()).padStart(2, '0')
             var mm = String(date.getMonth() + 1).padStart(2, '0')
             var yyyy = date.getFullYear()
             date = mm + '/' + dd + '/' + yyyy
 
             //Appending all the weather info to the correct div
-            var iconURL = "http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png"
+            var iconURL = "https://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png"
             var tempC = day.main.temp - 273.15
             var tempF = (day.main.temp - 273.15) * 1.8 + 32
             $("#date" + toEdit).text(date)
