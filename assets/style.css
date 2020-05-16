@@ -32,3 +32,26 @@
 
 } 
 
+.alert {
+
+    width: 60px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+
+}
+
+.alert-mid {
+
+    background-color: rgb(255, 174, 0);
+
+}
+
+.alert-high {
+
+    background-color: rgb(153, 0, 255);
+    color: #ffffff
+
+}
