@@ -1,4 +1,5 @@
 let weathCard = document.getElementById("currWeathCard")
+let weatherUlt = document.getElementById("weathCard")
 let cities = []
 let cityList = document.getElementById ("prevCities")
 
@@ -40,19 +41,28 @@ function storeCities() {
 }
 
 
-$("a").click(function(){
+$('ul').on("click", 'a', function(){
 
     var city = this.parentElement.getAttribute("cityname")
-    
-    console.log(city)
+    $("#cityName").val(city)
+    $("#citySubmit").trigger("click")
 
 })
 
+// $("a").on('click', function(){
+
+//     console.log(true)
+//     var city = this.parentElement.getAttribute("cityname")
+//     $("#cityName").val(city)
+//     console.log($("#cityName").val())
+
+// })
+
 $("#citySubmit").click(function() {
 
-    if (weathCard.classList.contains('invisible')) {
-        weathCard.classList.toggle('invisible')
-        weathCard.classList.toggle('visible')
+    if (weatherUlt.classList.contains('invisible')) {
+        weatherUlt.classList.toggle('invisible')
+        weatherUlt.classList.toggle('visible')
     }
  
     event.preventDefault()
@@ -155,7 +165,8 @@ $("#citySubmit").click(function() {
         + "<img src = '" + iconURL + "' alt=" + weatherDesc +">")
         $("#temp").html("<b>Temperature</b>: " + tempF.toFixed(2) + "°F (" + tempC.toFixed(2) + "°C)")
         $("#humid").html("<b>Humidity</b>: " + response.main.humidity + "%")
-        $("#windSpd").html("<b>Wind Speed</b>: " + response.wind.speed + " m/s")
+        var windMPH = response.wind.speed * 2.237
+        $("#windSpd").html("<b>Wind Speed</b>: " + windMPH + " MPH")
 
     })
 
@@ -166,7 +177,28 @@ $("#citySubmit").click(function() {
 
     }).then(function(response) {
 
-        console.log(response)
+        var weathers = []
+        weathers.push(response.list[2], response.list[11], response.list[20], response.list[29], response.list[38])
+        console.log(weathers)
+        weathers.forEach(function(day){
+
+            var toEdit = weathers.indexOf(day)
+            var timestamp = day.dt
+            var date = new Date(timestamp * 1000)
+            var dd = String(date.getDate()).padStart(2, '0')
+            var mm = String(date.getMonth() + 1).padStart(2, '0')
+            var yyyy = date.getFullYear()
+            date = mm + '/' + dd + '/' + yyyy
+            var iconURL = "http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png"
+            var tempC = day.main.temp - 273.15
+            var tempF = (day.main.temp - 273.15) * 1.8 + 32
+            $("#date" + toEdit).text(date)
+            $("#icon" + toEdit).attr("src", iconURL)
+            $("#temp" + toEdit).html("<b>Temp</b>: " + tempF.toFixed(2) + "°F (" + tempC.toFixed(2) + "°C)")
+            $("#humid" + toEdit).html("<b>Humidity</b>: " + day.main.humidity + "%")
+
+        })
+
 
     })
 

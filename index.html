@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>The Weather Pony</title>
+        <title>Pegasus Reports</title>
         <meta name="description" content="Rainbow Dash takes a look ahead at the weather for you">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -14,7 +14,7 @@
 
         <nav class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap">
 
-            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">The Weather Dashboard</a>
+            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Cloudsdale's Weather Readout</a>
 
             <button class="navbar-toggler collapsed d-flex justify-content-end d-md-none" type="button" data-toggle="collapse" data-target="#sidebarMenu">
               <span class="navbar-toggler-icon"></span>
@@ -55,17 +55,95 @@
 
                 </nav>
 
-                <div class="col-md-9 col-lg-10 invisible" id="currWeathCard">
+                <div class="col-md-9 col-lg-10 invisible" id="weathCard">
 
-                    <div class="card city-center mt-3">
+                    <div class="row" id="currWeathCard">
 
-                        <div class="card-body">
-                          <h2 class="card-title" id="cityNameDisp"></h2>
-                          <p class="card-text" id="temp"></p>
-                          <p class="card-text" id="humid"></p>
-                          <p class="card-text" id="windSpd"></p>
-                          <span class="card-text" id="UVI"></span><span class='alert' id='UVIAlert'></span>
+                        <div class="card city-center mt-3">
+    
+                            <div class="card-body">
+                              <h2 class="card-title" id="cityNameDisp"></h2>
+                              <p class="card-text" id="temp"></p>
+                              <p class="card-text" id="humid"></p>
+                              <p class="card-text" id="windSpd"></p>
+                              <span class="card-text" id="UVI"></span><span class='alert' id='UVIAlert'></span>
+                            </div>
+    
                         </div>
+                        
+                    </div>
+
+                    <div class="row forecastCard" id="forecastCard">
+
+                        <div class="col">
+
+                            <div class="row">
+
+                                <h2 class="forecast">Five Day Forecast</h2>
+
+                            </div>
+
+                            <div class="row forecastCards">
+
+                                <div class="col-lg">
+                                    <div class="card forecast">
+                                        <div class="card-body">
+                                          <h4 class="card-title" id="date0">Card title</h4>
+                                          <img id="icon0"></img>
+                                          <p class="card-text" id="temp0"></p>
+                                          <p class="card-text" id="humid0"></p>
+                                        </div>
+                                      </div>
+                                </div>
+
+                                <div class="col-lg">
+                                    <div class="card forecast">
+                                        <div class="card-body">
+                                          <h4 class="card-title" id="date1">Card title</h4>
+                                          <img id="icon1"></img>
+                                          <p class="card-text" id="temp1"></p>
+                                          <p class="card-text" id="humid1"></p>
+                                        </div>
+                                      </div>
+                                </div>
+
+                                <div class="col-lg">
+                                    <div class="card forecast">
+                                        <div class="card-body">
+                                          <h4 class="card-title" id="date2">Card title</h4>
+                                          <img id="icon2"></img>
+                                          <p class="card-text" id="temp2"></p>
+                                          <p class="card-text" id="humid2"></p>
+                                        </div>
+                                      </div>
+                                </div>
+
+                                <div class="col-lg">
+                                    <div class="card forecast">
+                                        <div class="card-body">
+                                          <h4 class="card-title" id="date3">Card title</h4>
+                                          <img id="icon3"></img>
+                                          <p class="card-text" id="temp3"></p>
+                                          <p class="card-text" id="humid3"></p>
+                                        </div>
+                                      </div>
+                                </div>
+
+                                <div class="col-lg">
+                                    <div class="card forecast">
+                                        <div class="card-body">
+                                          <h4 class="card-title" id="date4">Card title</h4>
+                                          <img id="icon4"></img>
+                                          <p class="card-text" id="temp4"></p>
+                                          <p class="card-text" id="humid4"></p>
+                                        </div>
+                                      </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
 
                     </div>
 
@@ -74,6 +152,7 @@
             </div>
 
         </div>
+
 
         
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

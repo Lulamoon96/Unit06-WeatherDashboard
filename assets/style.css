@@ -55,3 +55,30 @@
     color: #ffffff
 
 }
+
+.city-center{
+
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+
+.forecastCard {
+
+    margin-top: 10px;
+    
+}
+
+.forecast {
+    
+    margin-left: 10px;
+
+}
+
+.forecastCards {
+
+    margin-left: -30px;
+
+}
