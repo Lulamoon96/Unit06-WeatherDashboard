@@ -4,15 +4,22 @@
 
 }
 
-/* @media (max-width: 767.98px) {
+@media (max-width: 767.98px) {
 
-    .sidebar {
+    .forecast {
 
-        height: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
         
     }
 
-} */
+    .sidebar-sticky {
+
+        height: 500px;
+
+    }
+
+}
 
 .sidebar-sticky {
 
@@ -73,6 +80,14 @@
 
 .forecast {
     
+    margin-left: 10px;
+    background-color: rgb(7, 126, 223);
+    color:white;
+
+}
+
+.forecastTitle{
+
     margin-left: 10px;
 
 }
